@@ -20,7 +20,11 @@ body {
 }
 
 .stats-container {
-    display: flex;
+    display: flex; /*use display for flexbox*/
+    color: DarkBlue; /* new css rule for stats_container*/
+    align-items: center; /*use align items for flexbox*/
+    cursor: pointer; /*change pointer type*/
+    box-shadow: 0 0 30px lightblue; /*make box shadow*/
 }
 
 .stats-card {
