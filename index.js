@@ -172,7 +172,7 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
-const [game1, game2] = sortedGames;
+const [game1, game2, ...others] = sortedGames;
 //const name, desc, pl, goal, bkrs, img = game1;
 const { name: name1, description: desc1, pledged: pl1, goal: goal1, backers: bkrs1, img: img1 } = game1;
 const { name: name2, description: desc2, pledged: pl2, goal: goal2, backers: bkrs2, img: img2 } = game2;
