@@ -142,7 +142,8 @@ allBtn.addEventListener("click", showAllGames);
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-const totunfund = GAMES_JSON.filter((game) =>{game.pledged < game.goal}).length;
+//GAMES_JSON.filter((game)=>{return game.pledged < game.goal;})
+const totunfund = GAMES_JSON.filter((game) =>{return game.pledged < game.goal},0).length;
 
 // create a string that explains the number of unfunded games using the ternary operator
 const displayStr = 
@@ -171,7 +172,18 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+const [game1, game2] = sortedGames;
+//const name, desc, pl, goal, bkrs, img = game1;
+const { name: name1, description: desc1, pledged: pl1, goal: goal1, backers: bkrs1, img: img1 } = game1;
+const { name: name2, description: desc2, pledged: pl2, goal: goal2, backers: bkrs2, img: img2 } = game2;
+// define like this in javascript
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+const display1st = document.createElement("p");
+display1st.innerHTML = `${name1}`;
+firstGameContainer.appendChild(display1st);
 
 // do the same for the runner up item
+const display2nd = document.createElement("p");
+display2nd.innerHTML = `${name2}`;
+secondGameContainer.appendChild(display2nd);
