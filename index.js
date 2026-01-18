@@ -187,3 +187,18 @@ firstGameContainer.appendChild(display1st);
 const display2nd = document.createElement("p");
 display2nd.innerHTML = `${name2}`;
 secondGameContainer.appendChild(display2nd);
+
+
+
+// extra
+// Search engine
+function searchGame(event){
+    const searchText = event.target.value.toLowerCase(); // use toLowerCase()
+    const findGame = GAMES_JSON.filter(game =>game.name.toLowerCase().includes(searchText));
+
+    deleteChildElements(gamesContainer); //put after so all games don't disappear
+    addGamesToPage(findGame);
+}
+
+const searchItem= document.getElementById("search");//donb't use search container id
+searchItem.addEventListener("input", searchGame); // can add events to input
